@@ -4,9 +4,9 @@ Project: Disaster Response Pipeline (Udacity - Data Science Nanodegree)
 Sample Script Syntax:
 > python train_classifier.py <path to sqllite  destination db> <path to the pickle file>
 Sample Script Execution:
-> python train_classifier.py ../data/disaster_response.db classifier.pkl
+> python train_classifier.py ../data/DisasterResponse.db classifier.pkl
 Inputs:
-    1) Path to SQLite destination database (e.g. disaster_response.db)
+    1) Path to SQLite destination database (e.g. DisasterResponse.db)
     2) Path to pickle file name where ML model needs to be saved (e.g. classifier.pkl)
 """
 
@@ -89,9 +89,11 @@ def build_model():
                         ('tfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))
                         ])
-    parameters = {'clf__estimator__n_estimators': [50, 100],
-#                   'clf__estimator__min_samples_split': [2, 4],
-#                   'clf__estimator__criterion': ['entropy', 'gini']
+    parameters = {'clf__estimator__n_estimators': [100, 150 ,200],
+                  'clf__estimator__min_samples_split': [2, 4, 10],
+                  'clf__estimator__max_features': ['sqrt', 'log2'],
+                  'clf__estimator__max_depth': [50, 100, 150, 200, 250, 300],
+                  'clf__estimator__criterion': ['gini']
                  }
     model = GridSearchCV(pipeline, param_grid=parameters)
 
@@ -111,6 +113,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     Output:
         Print accuracy and classfication report for each category
     '''
+    print(model.best_params_)
     Y_pred = model.predict(X_test)
     # Calculate the accuracy for each of them.
     for i in range(len(category_names)):
@@ -161,3 +164,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# best model
+# {'clf__estimator__criterion': 'gini', 'clf__estimator__max_depth': 300,
+# 'clf__estimator__max_features': 'sqrt', 'clf__estimator__min_samples_split': 4,
+# 'clf__estimator__n_estimators': 100}
