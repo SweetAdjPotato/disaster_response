@@ -1,6 +1,6 @@
 # Disaster Response Pipeline
 
-![Intro Picture](results/intro picture.png)
+![Intro Picture](results/intro_picture.png)
 
 ### Table of Contents
 
@@ -64,11 +64,11 @@ The web app is demonstrated in the following steps with screen captures
 
 1. Enter a message to classify and click **Classify Message**
 
-![Example Input](results/example message.png)
+![Example Input](results/example_message.png)
 
 2. The following screen capture shows that the categories which the message belongs were highlighted in green in the Result
 
-![Example Output](results/example output.png)
+![Example Output](results/example_output.png)
 
 ## License <a name="license"></a>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
