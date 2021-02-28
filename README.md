@@ -15,7 +15,7 @@
 ## Installation <a name="installation"></a>
 
 1. Python 3.5+,
-2. Library and packages: NumPy, SciPy, Pandas, Sciki-Learn, NLTK, SQLalchemy, Pickle, Flask, Plotly
+2. Library and packages: NumPy, SciPy, Pandas, Scikit-Learn, NLTK, SQLalchemy, Pickle, Flask, Plotly
 
 ## Project Motivation and description <a name="motivation"></a>
 
